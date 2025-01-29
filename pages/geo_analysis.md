@@ -5,7 +5,7 @@
     alt="Vipin" 
     style="width: 150px; height: auto;">
   <h1 style="font-weight: bold; font-size: 30px; margin: 0;">Geo Analysis</h1>
-  <h2 style="font-size: 10px; margin: 0">Data: May 2016 - July 2023</h2>
+  <h2 style="font-size: 12px; margin: 0">Data: May 2016 - July 2023</h2>
 </div>
 </div>
 

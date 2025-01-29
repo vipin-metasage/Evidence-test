@@ -1,10 +1,12 @@
-<div style="display: flex; align-items: center; gap: 16px;">
+<div style="position: relative">
+<div style="display: flex; align-items: center; gap: 16px; position:fixed;top:0;width:100%;margin-top:6.6vh;z-index:1000;background:white;padding-bottom:0.35rem">
   <img 
     src="https://globalgreengroup.com/wp-content/uploads/2015/07/logo.png" 
     alt="Vipin" 
-    style="width: 170px; height: auto;">
+    style="width: 150px; height: auto;">
   <h1 style="font-weight: bold; font-size: 30px; margin: 0;">Productivity Overview</h1>
-  <h2 style="font-size: 10px; margin: 0">Data: May 2016 - July 2023</h2>
+  <h2 style="font-size: 12px; margin: 0">Data: May 2016 - July 2023</h2>
+</div>
 </div>
 
 <center>

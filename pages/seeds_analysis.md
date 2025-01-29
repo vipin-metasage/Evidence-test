@@ -5,50 +5,56 @@
     alt="Vipin" 
     style="width: 150px; height: auto;">
   <h1 style="font-weight: bold; font-size: 30px; margin: 0;">Seeds Analysis</h1>
-  <h2 style="font-size: 10px; margin: 0">Data: May 2016 - July 2023</h2>
+  <h2 style="font-size: 12px; margin: 0">Data: May 2016 - July 2023</h2>
 </div>
 </div>
 
-<left>
 
-<Grid cols= 3 gapSize=sm>
+<style>
+    .custom-flex {
+        display: flex;
+        gap: 1px; /* Adjust this value to control spacing between items */
+        margin-bottom: 2px; /* Adjust this value to control spacing between rows */
+    }
+    .custom-flex > * {
+        flex: 1; /* Ensures equal width for all items */
+    }
+</style>
 
-<Dropdown data={cycle} name=cycle value=cycle title="Date">
-    <DropdownOption value="%" valueLabel="All"/>
-</Dropdown>
+<div class="custom-flex">
+    <Dropdown data={cycle} name=cycle value=cycle title="Date">
+        <DropdownOption value="%" valueLabel="All"/>
+    </Dropdown>
 
-<Dropdown data={states} name=states value=states title="States">
-    <DropdownOption value="%" valueLabel="All"/>
-</Dropdown>
+      <Dropdown data={seeds_type} name=seeds_type value=seeds_type title="Seed Type">
+        <DropdownOption value="%" valueLabel="All"/>
+    </Dropdown>
 
-<Dropdown data={factory} name=factory value=factory title="Factory">
-    <DropdownOption value="%" valueLabel="All"/>
-</Dropdown>
+    <Dropdown data={factory} name=factory value=factory title="Factory">
+        <DropdownOption value="%" valueLabel="All"/>
+    </Dropdown>
 
-</Grid>
+  
+</div>
 
-<Grid cols= 3> 
+<div class="custom-flex">
+    <Dropdown data={states} name=states value=states title="States">
+        <DropdownOption value="%" valueLabel="All"/>
+    </Dropdown>
+    <Dropdown data={season} name=season value=season title="Season">
+        <DropdownOption value="%" valueLabel="All"/>
+    </Dropdown>
 
-<Dropdown data={season} name=season value=season title="Season">
-    <DropdownOption value="%" valueLabel="All"/>
-</Dropdown>
+    <Dropdown data={material_group} name=material_group value=material_group title="Material Group">
+        <DropdownOption value="%" valueLabel="All"/>
+    </Dropdown>
 
-<Dropdown data={material_group} name=material_group value=material_group title="Material Group">
-    <DropdownOption value="%" valueLabel="All"/>
-</Dropdown>
-
-<Dropdown data={seeds_type} name=seeds_type value=seeds_type title="Seed Type">
-    <DropdownOption value="%" valueLabel="All"/>
-</Dropdown>
-
-</Grid>
-
-</left>
+</div>
 
 <ButtonGroup name=matric display=tabs>
     <ButtonGroupItem valueLabel="Farmers" value="FARMERS" default />
     <ButtonGroupItem valueLabel="Productivity" value="PRODUCTIVITY" />
-    <ButtonGroupItem valueLabel="AVG_SEEDS_USED" value="AVG_SEEDS_USED" />
+    <ButtonGroupItem valueLabel="Avg Seeds Used" value="Avg Seeds Used" />
 </ButtonGroup>
 
 
@@ -58,7 +64,7 @@ SELECT
     l.states,
     AVG(f.productivity) AS "PRODUCTIVITY",
     COUNT(f.farmer_ID) AS FARMERS,
-    AVG(CAST(REPLACE(quantity, ',', '') AS DECIMAL)) AS "AVG_SEEDS_USED"
+    AVG(CAST(REPLACE(quantity, ',', '') AS DECIMAL)) AS "Avg Seeds Used"
 
 FROM  Farmers f
 JOIN 
@@ -105,7 +111,7 @@ SELECT
     "holding category",
     AVG(f.productivity) AS "PRODUCTIVITY",
     COUNT(f.farmer_ID) AS FARMERS,
-    AVG(CAST(REPLACE(quantity, ',', '') AS DECIMAL)) AS "AVG_SEEDS_USED"
+    AVG(CAST(REPLACE(quantity, ',', '') AS DECIMAL)) AS "Avg Seeds Used"
 
 FROM  Farmers f
 JOIN 
@@ -131,7 +137,7 @@ SELECT
     f.cycle,
     AVG(f.productivity) AS "PRODUCTIVITY",
     COUNT(f.farmer_ID) AS FARMERS,
-    AVG(CAST(REPLACE(quantity, ',', '') AS DECIMAL)) AS "AVG_SEEDS_USED"
+    AVG(CAST(REPLACE(quantity, ',', '') AS DECIMAL)) AS "Avg Seeds Used"
 
 FROM  Farmers f
 JOIN 

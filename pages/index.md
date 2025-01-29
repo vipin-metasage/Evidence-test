@@ -1,56 +1,19 @@
----
-title: Welcome to Evidence
----
-
-<Details title='How to edit this page'>
-  This page can be found in your project at `/pages/index.md`. Make a change to the markdown file and save it to see the change take effect in your browser.
-</Details>
-
-```sql categories
-  select
-      category
-  from needful_things.orders
-  group by category
-```
-
-
-<Dropdown data={categories} name=category value=category>
-    <DropdownOption value="%" valueLabel="All Categories"/>
-</Dropdown>
-
-<Dropdown name=year>
-    <DropdownOption value=% valueLabel="All Years"/>
-    <DropdownOption value=2019/>
-    <DropdownOption value=2020/>
-    <DropdownOption value=2021/>
-</Dropdown>
-
-```sql orders_by_category
-  select 
-      date_trunc('month', order_datetime) as month,
-      sum(sales) as sales_usd,
-      category
-  from needful_things.orders
-  where category like '${inputs.category.value}'
-  and date_part('year', order_datetime) like '${inputs.year.value}'
-  group by all
-  order by sales_usd desc
-```
-
-<BarChart
-    data={orders_by_category}
-    title="Sales by Month, {inputs.category.label}"
-    x=month
-    y=sales_usd
-    series=category
-/>
-
-## What's Next?
-- [Connect your data sources](settings)
-- Edit/add markdown files in the `pages` folder
-- Deploy your project with [Evidence Cloud](https://evidence.dev/cloud)
-
-## Get Support
-- Message us on [Slack](https://slack.evidence.dev/)
-- Read the [Docs](https://docs.evidence.dev/)
-- Open an issue on [Github](https://github.com/evidence-dev/evidence)
+<div class="flex flex-col items-center justify-center p-8 mt-8">
+  <img src="https://globalgreengroup.com/wp-content/uploads/2015/07/logo.png" alt="Global Green" class="w-[300px] mb-8" />
+  
+  <div class="text-center max-w-2xl">
+    <h1 class="text-4xl font-bold text-green-700 mb-4">
+      Welcome to Global Green
+    </h1>
+    
+    <div class="text-xl text-gray-600 mb-8">
+      Agricultural  Dashboard
+    </div>
+    
+    <div class="bg-gray-50 p-6 rounded-sm">
+      <p class="text-gray-400 text-sm">
+        Data: May 2016 - July 2023
+      </p>
+    </div>
+  </div>
+</div>
