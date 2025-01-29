@@ -25,7 +25,16 @@
   <DropdownOption value=""/>
 </Dropdown>
 
-Selected States: {inputs.states.valueLabel}
+Selected States: {inputs.states.value}
+
+```sql title_
+SELECT 
+    CASE 
+        WHEN {inputs.matric} = farmer_count THEN 'FARMERS'
+        WHEN {inputs.matric} = avg_productivity THEN 'PRODUCTIVITY'
+        ELSE 'NO MATCH'
+    END
+```
 
     <Dropdown name="metric" value="farmer_count" title="Metric">
         <DropdownOption value="farmer_count" valueLabel="Farmer Count" />
