@@ -37,7 +37,18 @@
 
 <center>
 
-
+<BigValue 
+  data={KPI1} 
+  value="AVERAGE PRODUCTIVITY VKP"
+  title="🏭AVERAGE PRODUCTIVITY VKP"
+  fmt="num0"
+/>
+<BigValue 
+  data={KPI2} 
+  value="AVERAGE PRODUCTIVITY OBL"
+  title="🏗️AVERAGE PRODUCTIVITY OBL"
+  fmt="num0"
+/>
 
 </center>
 
@@ -129,23 +140,24 @@
 ```
 
 ```sql KPI1
-SELECT avg(productivity) AS "AVERAGE PRODUCTIVITY" 
+SELECT avg(productivity) AS "AVERAGE PRODUCTIVITY VKP" 
 FROM Farmers f
 JOIN Location l  -- Join with the Location table
   ON f.farmer_id = l.farmer_id  -- Join condition on farmer_id
-WHERE f.factory = "VKP" 
+WHERE f.factory = 'VKP' 
   AND f.cycle LIKE '${inputs.cycle.value}'  
   AND f.season LIKE '${inputs.season.value}'  -- Filter by season input
   AND l.states LIKE '${inputs.states.value}'
   AND f.material_group like '${inputs.material_group.value}';  -- Filter by state input
 ```
+
 ```sql KPI2
-SELECT avg(productivity) AS "AVERAGE PRODUCTIVITY(2023-24)" 
+SELECT avg(productivity) AS "AVERAGE PRODUCTIVITY OBL" 
 FROM Farmers f
 JOIN Location l  -- Join with the Location table
   ON f.farmer_id = l.farmer_id  -- Join condition on farmer_id
 WHERE f.cycle LIKE '${inputs.factory.value}'
-  AND f.factory = "OBL" 
+  AND f.factory = 'OBL'
   AND f.season LIKE '${inputs.season.value}'  -- Filter by season input
   AND l.states LIKE '${inputs.states.value}'
   AND f.material_group like '${inputs.material_group.value}';  -- Filter by state input from Location table

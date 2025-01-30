@@ -11,7 +11,7 @@
     </div>
     
     <div class="bg-gray-50 p-6 rounded-sm">
-      <p class="text-gray-400 text-sm">
+      <p class="text-gray-500 text-sm">
         Data: May 2016 - July 2023
       </p>
     </div>

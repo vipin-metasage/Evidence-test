@@ -99,8 +99,9 @@ select "district","latitude","longitude","states",
     long=longitude
     maxSize=15
     size={inputs.metric.value} 
-    value={inputs.metric.value} 
-    height=400
+    value={inputs.metric.value}
+    title={`${inputs.metric.label} By State`}
+    height=370
     borderWidth=0.3
     borderColor=black
     pointName=district
@@ -114,7 +115,7 @@ select "district","latitude","longitude","states",
 
 <BarChart 
     data={map}
-    title="FARMERS BY STATE"
+    title={`${inputs.metric.label} By State`}
     x="states"
     y={inputs.metric.value}
     type="grouped"

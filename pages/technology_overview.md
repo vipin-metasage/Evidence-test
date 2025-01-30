@@ -9,42 +9,46 @@
 </div>
 </div>
 
-<left>
+<style>
+    .custom-flex {
+        display: flex;
+        gap: 35px; /* Adjust this value to control spacing between items */
+        margin-bottom: 1px; /* Adjust this value to control spacing between rows */
+    }
+    .custom-flex > * {
+        flex: 1; /* Ensures equal width for all items */
+    }
+</style>
 
-<Grid cols= 3 gapSize=none>
+<div class="custom-flex">
+    <Dropdown data={cycle} name=cycle value=cycle title="Date">
+        <DropdownOption value="%" valueLabel="All"/>
+    </Dropdown>
 
-<Dropdown data={cycle} name=cycle value=cycle title="Date">
-    <DropdownOption value="%" valueLabel="All"/>
-</Dropdown>
+      <Dropdown data={seeds_type} name=seeds_type value=seeds_type title="Seed Type">
+        <DropdownOption value="%" valueLabel="All"/>
+    </Dropdown>
 
-<Dropdown data={states} name=states value=states title="States">
-    <DropdownOption value="%" valueLabel="All"/>
-</Dropdown>
+    <Dropdown data={factory} name=factory value=factory title="Factory">
+        <DropdownOption value="%" valueLabel="All"/>
+    </Dropdown>
 
-<Dropdown data={factory} name=factory value=factory title="Factory">
-    <DropdownOption value="%" valueLabel="All"/>
-</Dropdown>
+  
+</div>
 
-</Grid>
+<div class="custom-flex">
+    <Dropdown data={states} name=states value=states title="States">
+        <DropdownOption value="%" valueLabel="All"/>
+    </Dropdown>
+    <Dropdown data={season} name=season value=season title="Season">
+        <DropdownOption value="%" valueLabel="All"/>
+    </Dropdown>
 
-<Grid cols= 3> 
+    <Dropdown data={material_group} name=material_group value=material_group title="Material Group">
+        <DropdownOption value="%" valueLabel="All"/>
+    </Dropdown>
 
-<Dropdown data={season} name=season value=season title="Season">
-    <DropdownOption value="%" valueLabel="All"/>
-</Dropdown>
-
-<Dropdown data={material_group} name=material_group value=material_group title="Material Group">
-    <DropdownOption value="%" valueLabel="All"/>
-</Dropdown>
-
-<Dropdown data={seeds_type} name=seeds_type value=seeds_type title="Seed Type">
-    <DropdownOption value="%" valueLabel="All"/>
-</Dropdown>
-
-
-</Grid>
-
-</left>
+</div>
 
 <ButtonGroup name=matric display=tabs>
     <ButtonGroupItem valueLabel="Farmers" value="FARMERS" default />
@@ -176,6 +180,17 @@ GROUP BY TECHNOLOGY, f.material_group
 ORDER BY f.material_group;
 ```
 
+
+<BarChart 
+    data={techbymaterial}
+    title="{inputs.matric} BY MATERIAL GROUP"
+    x="material_group"
+    y="{inputs.matric}"
+    series=TECHNOLOGY
+    type="grouped"
+    sort=TECHNOLOGY
+/>
+
 <BarChart 
     data={techbycycle}
     title="{inputs.matric} BY SEEDS OVERTIME"
@@ -186,16 +201,7 @@ ORDER BY f.material_group;
     sort="cycle"
 />
 
-<BarChart 
-    data={techbymaterial}
-    title="{inputs.matric} BY SEEDS OVERTIME"
-    x="material_group"
-    y="{inputs.matric}"
-    series=TECHNOLOGY
-    type="grouped"
-    sort=TECHNOLOGY
-/>
-
+**<span style="font-size: smaller;">Note:</span>** <span style="font-size: smaller;">Farmers with sowing areas less than *0.61 acre* are **Small**, between *0.61 and 0.95 acre* are **Medium**, and larger than *0.95 acre* are **Large**.</span>
 
 ```sql techbycycle
 SELECT 

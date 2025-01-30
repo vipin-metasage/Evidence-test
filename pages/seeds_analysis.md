@@ -13,8 +13,8 @@
 <style>
     .custom-flex {
         display: flex;
-        gap: 1px; /* Adjust this value to control spacing between items */
-        margin-bottom: 2px; /* Adjust this value to control spacing between rows */
+        gap: 35px; /* Adjust this value to control spacing between items */
+        margin-bottom: 1px; /* Adjust this value to control spacing between rows */
     }
     .custom-flex > * {
         flex: 1; /* Ensures equal width for all items */
@@ -54,7 +54,7 @@
 <ButtonGroup name=matric display=tabs>
     <ButtonGroupItem valueLabel="Farmers" value="FARMERS" default />
     <ButtonGroupItem valueLabel="Productivity" value="PRODUCTIVITY" />
-    <ButtonGroupItem valueLabel="Avg Seeds Used" value="Avg Seeds Used" />
+    <ButtonGroupItem valueLabel="Avg Seeds Used" value="AVG SEEDS USED" />
 </ButtonGroup>
 
 
@@ -64,7 +64,7 @@ SELECT
     l.states,
     AVG(f.productivity) AS "PRODUCTIVITY",
     COUNT(f.farmer_ID) AS FARMERS,
-    AVG(CAST(REPLACE(quantity, ',', '') AS DECIMAL)) AS "Avg Seeds Used"
+    AVG(CAST(REPLACE(quantity, ',', '') AS DECIMAL)) AS "AVG SEEDS USED"
 
 FROM  Farmers f
 JOIN 
@@ -111,7 +111,7 @@ SELECT
     "holding category",
     AVG(f.productivity) AS "PRODUCTIVITY",
     COUNT(f.farmer_ID) AS FARMERS,
-    AVG(CAST(REPLACE(quantity, ',', '') AS DECIMAL)) AS "Avg Seeds Used"
+    AVG(CAST(REPLACE(quantity, ',', '') AS DECIMAL)) AS "AVG SEEDS USED"
 
 FROM  Farmers f
 JOIN 
@@ -137,7 +137,7 @@ SELECT
     f.cycle,
     AVG(f.productivity) AS "PRODUCTIVITY",
     COUNT(f.farmer_ID) AS FARMERS,
-    AVG(CAST(REPLACE(quantity, ',', '') AS DECIMAL)) AS "Avg Seeds Used"
+    AVG(CAST(REPLACE(quantity, ',', '') AS DECIMAL)) AS "AVG SEEDS USED"
 
 FROM  Farmers f
 JOIN 
